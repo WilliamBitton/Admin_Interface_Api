@@ -98,7 +98,7 @@ exports.getProductsUserUserId = (req, res, next) => {
 
 exports.getSearch = (req, res, next) => {
   const search = req.params.search
-  products.search(search)
+  products.find(search)
   .then(products => {
     res.status(200).json({
       products: products
