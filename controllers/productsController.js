@@ -97,5 +97,17 @@ exports.getProductsUserUserId = (req, res, next) => {
 }
 
 exports.getSearch = (req, res, next) => {
-
+  const search = req.params.search
+  products.search(search)
+  .then(products => {
+    res.status(200).json({
+      products: products
+    })
+  })
+  .catch(err => {
+    if (!err.statusCode) {
+      err.statusCode = 500
+    }
+    next(err)
+  })
 }
