@@ -24,11 +24,12 @@ app.use(errorController.getError)
 app.use(errorController.logErrors)
 
 const PORT = process.env.PORT || 3000
-mongoose.connect('mongodb+srv://WillB:TP3.prog@tp3db.9dgu0ps.mongodb.net/TP3?retryWrites=true&w=majority')
+const MONGOOSE = process.env.MONGOOSE
+mongoose.connect(MONGOOSE)
     .then(() => {
         console.log('La connexion à la base de données est établie')
         app.listen(PORT, () => {
-            console.log('Le serveur écoute sur le port 3000')
+            console.log('Le serveur est démarré')
         })
     })
     .catch(err => {
