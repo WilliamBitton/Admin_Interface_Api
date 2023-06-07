@@ -98,18 +98,6 @@ exports.getProductsUserUserId = (req, res, next) => {
 
 exports.getSearch = (req, res, next) => {
   const search = req.query.q
-  products.find()
-    .then(products.filter(product =>
-      product.title.includes(search)),
-      res.status(200).json({
-        products: products
-      })
-    )
-
-    .catch(err => {
-      if (!err.statusCode) {
-        err.statusCode = 500
-      }
-      next(err)
-    })
+  const productFound = products.find(product => product.title.includes(search))
+  res.status(200).json({ productFound })
 }
