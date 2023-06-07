@@ -98,6 +98,6 @@ exports.getProductsUserUserId = (req, res, next) => {
 
 exports.getSearch = (req, res, next) => {
   const search = req.query.q
-  const productFound = products.filter(product => product.title.includes(search))
+  const productFound = products.search(product => product.title.includes(search))
   res.status(200).json({ productFound })
 }
