@@ -3,7 +3,11 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const indexRoutes = require('./routes/index')
+const authRoutes = require('./routes/auth')
+const usersRoutes = require('./routes/auth')
+const productsRoutes = require('./routes/auth')
+const categoriesRoutes = require('./routes/auth')
+const cartRoutes = require('./routes/auth')
 const errorController = require('./controllers/errorController')
 
 app.use((req, res, next) => {
@@ -19,7 +23,11 @@ app.use(express.json())
 app.use(express.urlencoded({
     extended: false
 }))
-app.use(indexRoutes)
+app.use(authRoutes)
+app.use(usersRoutes)
+app.use(productsRoutes)
+app.use(categoriesRoutes)
+app.use(cartRoutes)
 app.use(errorController.getError)
 app.use(errorController.logErrors)
 
