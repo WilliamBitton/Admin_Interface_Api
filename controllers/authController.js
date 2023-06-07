@@ -1,7 +1,7 @@
 "use strict"
 
 const users = require('../models/users')
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv')
 dotenv.config()

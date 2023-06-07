@@ -25,13 +25,11 @@ const products = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'categories',
         required: [true],
-        //ID EXISTING CATEGORY VALIDATION TO DO
     },
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'users',
         required: [true],
-        //ID EXISTING USER VALIDATION TO DO
     },
     isSold: {
         type: Boolean,
