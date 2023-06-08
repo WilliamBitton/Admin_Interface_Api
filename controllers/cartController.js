@@ -72,9 +72,11 @@ exports.deleteCartId = (req, res, next) => {
             return products.findById(productId)
         })
         .then(product => {
-            if (product) {
+            if (product.isSold) {
                 product.isSold = false
                 return product.save()
+            } else {
+                res.status(500).json({ message: 'Product not in cart' })
             }
         })
         .then(() => {
