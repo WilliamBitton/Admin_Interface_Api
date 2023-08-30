@@ -10,14 +10,9 @@ const productsRoutes = require('./routes/products')
 const categoriesRoutes = require('./routes/categories')
 const cartRoutes = require('./routes/cart')
 const errorController = require('./controllers/errorController')
+const cron = require('./cron')
 
-const cron = require('node-cron');
-const http = require('http');
-cron.schedule('*/10 * * * *', () => {
-  http.get('https://snippet-o8zu.onrender.com')
-})
-cron.start()
-
+app.use(cron())
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader(
