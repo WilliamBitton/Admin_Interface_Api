@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     next()
 })
 app.use(cors({
-    origin: 'https://game-store-react-syx3.onrender.com'
+    origin: 'https://game-store-next.onrender.com'
   }))
 app.use(express.json())
 app.use(express.urlencoded({
