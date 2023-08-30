@@ -16,21 +16,21 @@ const products = new Schema({
         type: Number,
         required: [true]
     },
-    imageUrl: {
-        type: Array,
-        required: [true],
-        maxLength: 255
-    },
+    // imageUrl: {
+    //     type: Array,
+    //     required: [true],
+    //     maxLength: 255
+    // },
     categoryId: {
         type: Schema.Types.ObjectId,
         ref: 'categories',
         required: [true],
     },
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'users',
-        required: [true],
-    },
+    // userId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'users',
+    //     required: [true],
+    // },
     isSold: {
         type: Boolean,
         required: [true]

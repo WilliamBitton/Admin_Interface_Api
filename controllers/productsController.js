@@ -42,9 +42,9 @@ exports.postProducts = (req, res, next) => {
     title: title,
     description: description,
     price: price,
-    imageUrl: imageUrl,
+    // imageUrl: imageUrl,
     categoryId: categoryId,
-    userId: req.user.userId,
+    // userId: req.user.userId,
     isSold: false
   })
   newProduct.save(newProduct)
@@ -63,10 +63,10 @@ exports.postProducts = (req, res, next) => {
 
 exports.deleteProductsId = (req, res, next) => {
   const productId = req.params.id
-  const user = req.user.userId
+  // const user = req.user.userId
   products.findById(productId)
     .then((product) => {
-      if (product.userId.toString() === user) {
+      // if (product.userId.toString() === user) {
         products.findByIdAndRemove(productId)
           .then(_ => {
             res.status(204).send()
@@ -74,9 +74,9 @@ exports.deleteProductsId = (req, res, next) => {
           .catch(err => {
             next(err)
           })
-      } else {
-        res.status(403).json('Unauthorized')
-      }
+      // } else {
+      //   res.status(403).json('Unauthorized')
+      // }
     })
 }
 

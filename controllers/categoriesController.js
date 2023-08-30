@@ -39,7 +39,7 @@ exports.postCategories = (req, res, next) => {
     const user = req.user.userId
     users.findById(user)
         .then((user) => {
-            if (user.isAdmin) {
+            // if (user.isAdmin) {
                 const newCategory = new categories({
                     name: name
                 })
@@ -55,9 +55,9 @@ exports.postCategories = (req, res, next) => {
                         }
                         next(err)
                     })
-            } else {
-                res.status(403).json('Unauthorized')
-            }
+            // } else {
+            //     res.status(403).json('Unauthorized')
+            // }
         })
 }
 
@@ -67,7 +67,7 @@ exports.putCategoriesId = (req, res, next) => {
     const user = req.user.userId
     users.findById(user)
         .then((user) => {
-            if (user.isAdmin) {
+            // if (user.isAdmin) {
                 categories.findByIdAndUpdate(id, updatedCategory, { new: true })
                     .then((category) => {
                         res.status(200).json({
@@ -80,9 +80,9 @@ exports.putCategoriesId = (req, res, next) => {
                         }
                         next(err)
                     })
-            } else {
-                res.status(403).json('Unauthorized')
-            }
+            // } else {
+            //     res.status(403).json('Unauthorized')
+            // }
         })
 }
 
@@ -91,7 +91,7 @@ exports.deleteCategoriesId = (req, res, next) => {
     const user = req.user.userId
     users.findById(user)
         .then((user) => {
-            if (user.isAdmin) {
+            // if (user.isAdmin) {
                 categories.findByIdAndRemove(id)
                     .then(_ => {
                         res.status(204).send()
@@ -102,8 +102,8 @@ exports.deleteCategoriesId = (req, res, next) => {
                         }
                         next(err)
                     })
-            } else {
-                res.status(403).json('Unauthorized')
-            }
+            // } else {
+            //     res.status(403).json('Unauthorized')
+            // }
         })
 }
