@@ -11,8 +11,8 @@ const categoriesRoutes = require('./routes/categories')
 const cartRoutes = require('./routes/cart')
 const errorController = require('./controllers/errorController')
 const cron = require('./cron')
+cron()
 
-app.use(cron())
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader(
